@@ -1,2 +1,3 @@
 def tokenize(source):
-    return []
+    return source.replace('(',' ( ').replace(')',' ) ').split()
+
