@@ -1,2 +1,2 @@
-def run():
-    return 'ok'
+def tokenize(source):
+    return []
