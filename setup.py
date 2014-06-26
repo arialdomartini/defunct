@@ -15,6 +15,9 @@ setup(
     keywords = "lisp python",
     url = "https://github.com/arialdomartini/defunct",
     packages=find_packages(),
+    install_requires = [''],
+    tests_require = ['sure==1.2.5'],
+    extras_require = {'tests': ['sure==1.2.5']},
     test_suite = "tests",
     long_description=read('README.md'),
     classifiers=[
