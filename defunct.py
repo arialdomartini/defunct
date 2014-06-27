@@ -3,11 +3,11 @@ def Read(prompt):
 
 
 def Eval(code):
-    return 'evaluated %s' %code
+    return %code
 
-
+from pprint import pprint
 def Print(result):
-    print(result)
+    pprint(result)
 
 
 def Loop(f):
