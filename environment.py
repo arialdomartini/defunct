@@ -5,6 +5,7 @@ class Environment(dict):
 
     def add_commands(self, commands):
         self.update(commands)
+        
 
 
     def find_symbol(self, symbol):
