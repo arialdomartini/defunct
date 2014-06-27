@@ -19,8 +19,7 @@ def Loop(f):
 
 
 if __name__ == '__main__':
-    env = Environment()
-    env.add_commands(lisp.builtin_commands)
+    env = Environment(lisp.builtin_commands)
 
     try:
         Loop(lambda: Print(Eval(Read('> '), env)))

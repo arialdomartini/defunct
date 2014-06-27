@@ -2,6 +2,7 @@ from pprint import pprint
 from symbol import Symbol
 
 def Eval(item, env):
+    pprint("Evaluating %s" %item)
     if isinstance(item, Symbol):
         return value_of_symbol(item, env)
     elif isinstance(item, list):
@@ -11,6 +12,14 @@ def Eval(item, env):
 
 
 def eval_list(items, env):
+    pprint("Evaluating the list: %s" %items)
+    first_element = items[0]
+    pprint("First element is: %s" % first_element)
+    if is_a_lambda(first_element):
+        pprint("It's a lambda: %s" %items)
+        (_, vars, exp) = items
+        return lambda *args: Eval(exp, Env(vars, args, env))
+    else:
         exps = [Eval(item, env) for item in items]
         proc = exps.pop(0)
         return proc(*exps)
@@ -18,3 +27,6 @@ def eval_list(items, env):
 
 def value_of_symbol(symbol, env):
     return env.find_symbol(symbol)
+
+def is_a_lambda(element):
+    return isinstance(element, Symbol) and element.get_value() == 'lambda'
