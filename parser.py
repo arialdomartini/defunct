@@ -2,9 +2,11 @@ from symbol import Symbol
 
 
 def literal(token):
-    try: return int(token)
+    try:
+        return int(token)
     except ValueError:
-        try: return float(token)
+        try:
+            return float(token)
         except ValueError:
             return Symbol(token)
 
@@ -35,9 +37,9 @@ def to_ats(tokens):
 
 def tokenize(source_code):
     replacements = (
-        ( '(',  ' ( '), 
-        ( ')' , ' ) ')
+        ('(', ' ( '),
+        (')', ' ) ')
     )
-    expanded_code = reduce(lambda a, kv: a.replace(*kv), replacements, source_code)
+    expanded_code = reduce(lambda a, kv:
+                           a.replace(*kv), replacements, source_code)
     return expanded_code.split()
-
