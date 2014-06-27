@@ -1,6 +1,7 @@
 from pprint import pprint
 from parser import parse
 from environment import Environment
+import lisp
 from evaluator import Eval
 
 
@@ -19,6 +20,8 @@ def Loop(f):
 
 if __name__ == '__main__':
     env = Environment()
+    env.add_commands(lisp.builtin_commands)
+
     try:
         Loop(lambda: Print(Eval(Read('> '), env)))
     except EOFError:
