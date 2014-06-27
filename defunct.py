@@ -1,19 +1,19 @@
-
-def Loop(f):
-    while True:
-        f()
-
-def Print(result):
-    print(result)
+def Read(prompt):
+    return raw_input(prompt)
 
 
 def Eval(code):
     return 'evaluated %s' %code
 
-def Read(prompt):
-    return raw_input(prompt)
+
+def Print(result):
+    print(result)
+
+
+def Loop(f):
+    while True:
+        f()
 
 
 if __name__ == '__main__':
-    while True:
-        Print(Eval(Read('> ')))
+    Loop(lambda: Print(Eval(Read('> '))))
