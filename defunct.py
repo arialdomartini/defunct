@@ -4,7 +4,6 @@ def Read(prompt):
     return parse(raw_input(prompt))
 
 
-
 def Eval(code):
     return code
 
@@ -20,4 +19,7 @@ def Loop(f):
 
 
 if __name__ == '__main__':
-    Loop(lambda: Print(Eval(Read('> '))))
+    try: 
+        Loop(lambda: Print(Eval(Read('> '))))
+    except EOFError:
+        print('Done.')
