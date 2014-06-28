@@ -1,7 +1,8 @@
+from pprint import pprint
+
 class Environment(dict):
-    def __init__(self, parms=(), args=(), outer=None):
-        self.update(zip(parms, args))
-        self.update(parms)
+    def __init__(self, parameters=(), arguments=(), outer=None):
+        self.update(zip(parameters, arguments))
         self.outer = outer
 
 
@@ -10,10 +11,11 @@ class Environment(dict):
 
 
     def find_symbol(self, symbol):
-        from pprint import pprint
-        pprint('Looking for symbol: %s in env: %s'
-               % (symbol.get_value(), self))
+        
+        pprint("Looking for symbol: '%s' with value '%s' in env: %s"
+               % (symbol, symbol.get_value(), self))
         if symbol.get_value() in self:
             return self[symbol.get_value()]
         else:
+            pprint("Not found. Asking outer env...")
             return self.outer.find_symbol(symbol)
