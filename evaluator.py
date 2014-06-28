@@ -20,6 +20,9 @@ def eval_list(items, env):
         pprint("It's a lambda: %s" % items)
         (_, vars, exp) = items
         return lambda *args: Eval(exp, Env(vars, args, env))
+    elif is_a_binding_definition(first_element):
+        (_, binding_name, expression) = items
+        env[binding_name] = Eval(expression, env)
     else:
         exps = [Eval(item, env) for item in items]
         proc = exps.pop(0)
@@ -31,4 +34,12 @@ def value_of_symbol(symbol, env):
 
 
 def is_a_lambda(element):
-    return isinstance(element, Symbol) and element.get_value() == 'lambda'
+    return is_the_builtin_symbol(element, 'lambda')
+
+
+def is_a_binding_definition(element):
+    return is_the_builtin_symbol(element, 'define')
+
+
+def is_the_builtin_symbol(element, symbol):
+    return isinstance(element, Symbol) and element.get_value() == symbol

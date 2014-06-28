@@ -4,8 +4,10 @@ class Environment(dict):
         self.update(parms)
         self.outer = outer
 
+
     def add_commands(self, commands):
         self.update(commands)
+
 
     def find_symbol(self, symbol):
         from pprint import pprint
