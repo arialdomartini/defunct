@@ -13,7 +13,7 @@ So far, it can run simple programs like
 
 ```
 (do 
-    (define sum_1 (lambda (x) 
+    (= sum_1 (lambda (x) 
         (+ 1 x)
      )) 
 

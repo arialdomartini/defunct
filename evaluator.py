@@ -54,7 +54,7 @@ def is_a_lambda(element):
 
 
 def is_a_binding_definition(element):
-    return is_the_builtin_symbol(element, 'define')
+    return is_the_builtin_symbol(element, '=')
 
 
 def is_a_sequence(element):
