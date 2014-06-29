@@ -58,7 +58,7 @@ def is_a_binding_definition(element):
 
 
 def is_a_sequence(element):
-    return is_the_builtin_symbol(element, 'sequence')
+    return is_the_builtin_symbol(element, 'do')
 
 
 def is_the_builtin_symbol(element, symbol):

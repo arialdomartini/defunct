@@ -12,7 +12,7 @@ So far, it can run simple programs like
 
 
 ```
-(sequence 
+(do 
     (define sum_1 (lambda (x) 
         (+ 1 x)
      )) 
